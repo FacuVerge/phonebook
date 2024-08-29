@@ -62,11 +62,11 @@ app.post('/api/persons', (request, response, next) => {
 })
 
 app.put('/api/persons/:id', (request, response, next) => {
-	const { content, important } = request.body
+	const { name, phone } = request.body
   
 	Person.findByIdAndUpdate(
 		request.params.id, 
-		{ content, important }, 
+		{ name, phone }, 
 		{ new: true, runValidators: true, context: 'query' }
 	)
 		.then(updatedPerson => {
